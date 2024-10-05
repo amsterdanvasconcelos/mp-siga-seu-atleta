@@ -1,3 +1,13 @@
-export default function Home() {
-  return <h3>Home</h3>;
+import db from '@/prisma/db';
+
+export default async function Home() {
+  const sports = await db.sport.findMany();
+
+  return (
+    <div>
+      {sports.map(({ id, name }) => (
+        <h3 key={id}>{name}</h3>
+      ))}
+    </div>
+  );
 }
