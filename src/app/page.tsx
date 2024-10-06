@@ -1,6 +1,6 @@
 import db from '@/prisma/db';
 
-export default async function Home() {
+async function Home() {
   const sports = await db.sport.findMany();
 
   return (
@@ -11,3 +11,5 @@ export default async function Home() {
     </div>
   );
 }
+
+export default Home;
