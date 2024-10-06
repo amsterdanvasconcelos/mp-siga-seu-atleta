@@ -1,14 +1,13 @@
-import db from '@/prisma/db';
+import AthletesList from './components/athletes-list';
+import { Suspense } from 'react';
 
 async function Home() {
-  const sports = await db.sport.findMany();
-
   return (
-    <div>
-      {sports.map(({ id, name }) => (
-        <h3 key={id}>{name}</h3>
-      ))}
-    </div>
+    <main>
+      <Suspense fallback={<h2>Carregando...</h2>}>
+        <AthletesList />
+      </Suspense>
+    </main>
   );
 }
 

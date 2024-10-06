@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div className="flex items-center justify-between p-4 mb-10 w-full">
       <Link className="text-lg font-semibold" href={'/'}>
-        <div className="relative h-14 w-60">
+        <div className="relative h-10 w-40">
           <Image priority={true} src={'./logo.svg'} alt="logo" fill />
         </div>
       </Link>
