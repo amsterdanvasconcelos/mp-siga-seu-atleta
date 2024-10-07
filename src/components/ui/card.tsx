@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
-import CardGrainyBackground from '../card-grainy-background';
+import CardGrainyBackground from '@/components/card-grainy-background';
 
 const Card = React.forwardRef<
   HTMLDivElement,
