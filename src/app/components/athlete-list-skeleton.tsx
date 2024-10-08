@@ -19,7 +19,7 @@ function AthletesListSkeleton() {
             </div>
           </div>
           {/* CONTENT */}
-          <div className="p-4 text-sm text-gray-700 font-light grid gap-2">
+          <div className="p-4 text-sm text-gray-700 font-light grid gap-2 h-32">
             <Skeleton className="h-[10px] w-full" />
             <Skeleton className="h-[10px] w-full" />
             <Skeleton className="h-[10px] w-full" />

@@ -1,6 +1,7 @@
+import { Suspense } from 'react';
+
 import AthletesListSkeleton from './components/athlete-list-skeleton';
 import AthletesList from './components/athletes-list';
-import { Suspense } from 'react';
 
 async function Home() {
   return (
