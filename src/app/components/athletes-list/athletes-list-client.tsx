@@ -9,9 +9,10 @@ import AthleteCard from '@/app/components/athlete-card';
 
 type AthletesListClientPros = {
   initialData: AthleteWithSport[];
+  filters: { searchText: string };
 };
 
-function AthletesListClient({ initialData }: AthletesListClientPros) {
+function AthletesListClient({ initialData, filters }: AthletesListClientPros) {
   const [offset, setOffset] = useState(ATHLETES_PER_PAGE);
   const [athletes, setAthletes] = useState<AthleteWithSport[]>(initialData);
   const [hasMoreAthletes, setHasMoreAthletes] = useState(
@@ -22,7 +23,7 @@ function AthletesListClient({ initialData }: AthletesListClientPros) {
 
   const loadMoreAthletes = async () => {
     if (hasMoreAthletes) {
-      const moreAthletes = await findAthletes({ offset });
+      const moreAthletes = await findAthletes({ offset, ...filters });
 
       if (moreAthletes.length < ATHLETES_PER_PAGE) {
         setHasMoreAthletes(false);
@@ -41,7 +42,7 @@ function AthletesListClient({ initialData }: AthletesListClientPros) {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {athletes.map((athlete) => (
           <AthleteCard key={athlete.id} athlete={athlete} />
         ))}
