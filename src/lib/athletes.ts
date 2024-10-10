@@ -11,19 +11,18 @@ export type AthleteWithSport = Athlete & {
 type findAthletesProps = {
   offset?: number;
   searchText?: string;
-  category?: 'all' | 'olympic' | 'paralympic';
+  category?: 'olympic' | 'paralympic';
   sport?: string;
 };
 
 export async function findAthletes({
   offset = 0,
   searchText = '',
-  category = 'all',
+  category,
   sport,
 }: findAthletesProps) {
   // await new Promise((resolve) => setTimeout(resolve, 2000));
-  const isParalympic =
-    category === 'all' ? undefined : category === 'paralympic';
+  const isParalympic = category && category === 'paralympic';
 
   return db.athlete.findMany({
     skip: offset,

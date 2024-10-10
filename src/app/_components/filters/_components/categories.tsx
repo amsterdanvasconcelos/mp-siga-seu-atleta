@@ -1,7 +1,7 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 
 type CategoriesFilterProps = {
-  category: string;
+  category: string | undefined;
   onCategoryChange: (selectedCategory: string) => void;
 };
 
@@ -9,6 +9,8 @@ function CategoriesFilter({
   category,
   onCategoryChange,
 }: CategoriesFilterProps) {
+  const categoryValue = category ? category : 'all';
+
   return (
     <div className="flex flex-col md:flex-row items-center gap-1 mt-10 md:mt-0">
       <span className="text-sm underline decoration-yellow-500 block md:hidden">
@@ -16,7 +18,7 @@ function CategoriesFilter({
       </span>
       <ToggleGroup
         type="single"
-        value={category}
+        value={categoryValue}
         onValueChange={onCategoryChange}
       >
         <ToggleGroupItem value="all" aria-label="Selecionar todos">

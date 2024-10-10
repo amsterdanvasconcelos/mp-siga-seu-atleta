@@ -5,17 +5,17 @@ import AthletesList from '@/app/_components/athletes-list';
 import Filters from '@/app/_components/filters';
 import { findSports } from '@/lib/sports';
 
-async function Home({
-  searchParams,
-}: {
+type HomeParams = {
   searchParams: {
     q?: string;
-    category?: 'all' | 'olympic' | 'paralympic';
+    category?: 'olympic' | 'paralympic' | undefined;
     sport: string;
   };
-}) {
+};
+
+async function Home({ searchParams }: HomeParams) {
   const searchText = searchParams?.q || '';
-  const category = searchParams?.category || 'all';
+  const category = searchParams?.category;
   const sport = searchParams?.sport;
 
   const sports = await findSports();

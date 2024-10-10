@@ -3,7 +3,7 @@ import CategoriesFilter from './categories';
 import SportsFilter from './sports';
 
 type DesktopFiltersProps = {
-  category: string;
+  category: string | undefined;
   onCategoryChange: (selectedCategory: string) => void;
   sports: Sport[];
   sportCode: string;

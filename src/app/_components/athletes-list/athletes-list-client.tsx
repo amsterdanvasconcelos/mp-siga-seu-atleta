@@ -9,7 +9,10 @@ import AthleteCard from '@/app/_components/athlete-card';
 
 type AthletesListClientPros = {
   initialData: AthleteWithSport[];
-  filters: { searchText: string; category: 'all' | 'olympic' | 'paralympic' };
+  filters: {
+    searchText: string;
+    category: 'olympic' | 'paralympic' | undefined;
+  };
 };
 
 function AthletesListClient({ initialData, filters }: AthletesListClientPros) {
