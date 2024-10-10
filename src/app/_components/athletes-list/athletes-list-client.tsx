@@ -11,7 +11,7 @@ type AthletesListClientPros = {
   initialData: AthleteWithSport[];
   filters: {
     searchText: string;
-    category: 'olympic' | 'paralympic' | undefined;
+    category: 'olimpico' | 'paralimpico' | undefined;
   };
 };
 

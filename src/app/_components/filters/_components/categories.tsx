@@ -9,7 +9,7 @@ function CategoriesFilter({
   category,
   onCategoryChange,
 }: CategoriesFilterProps) {
-  const categoryValue = category ? category : 'all';
+  const categoryValue = category ? category : 'todos';
 
   return (
     <div className="flex flex-col md:flex-row items-center gap-1 mt-10 md:mt-0">
@@ -21,14 +21,14 @@ function CategoriesFilter({
         value={categoryValue}
         onValueChange={onCategoryChange}
       >
-        <ToggleGroupItem value="all" aria-label="Selecionar todos">
+        <ToggleGroupItem value="todos" aria-label="Selecionar todos">
           Todos
         </ToggleGroupItem>
-        <ToggleGroupItem value="olympic" aria-label="Selecionar olímpicos">
+        <ToggleGroupItem value="olimpico" aria-label="Selecionar olímpicos">
           Olímpicos
         </ToggleGroupItem>
         <ToggleGroupItem
-          value="paralympic"
+          value="paralimpico"
           aria-label="Selecionar paralímpicos"
         >
           Paralímpicos
