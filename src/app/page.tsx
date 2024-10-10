@@ -9,7 +9,7 @@ type HomeParams = {
   searchParams: {
     q?: string;
     categoria?: 'olimpico' | 'paralimpico' | undefined;
-    sport: string;
+    sport?: string;
   };
 };
 

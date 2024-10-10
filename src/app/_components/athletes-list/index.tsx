@@ -4,8 +4,8 @@ import AthletesListClient from './athletes-list-client';
 type AthletesListProps = {
   filters: {
     searchText: string;
-    category: 'olimpico' | 'paralimpico' | undefined;
-    sport: string;
+    category?: 'olimpico' | 'paralimpico';
+    sport?: string;
   };
 };
 
