@@ -7,14 +7,14 @@ import { findSports } from '@/lib/sports';
 
 type HomeParams = {
   searchParams: {
-    pesquisa?: string;
+    nome?: string;
     categoria?: 'olimpico' | 'paralimpico' | undefined;
     esporte?: string;
   };
 };
 
 async function Home({ searchParams }: HomeParams) {
-  const searchText = searchParams?.pesquisa || '';
+  const searchText = searchParams?.nome || '';
   const category = searchParams?.categoria;
   const sport = searchParams?.esporte;
 

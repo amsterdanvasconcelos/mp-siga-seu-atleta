@@ -12,7 +12,7 @@ function Filters({ sports }: { sports: Sport[] }) {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const q = searchParams.get('pesquisa') || '';
+  const q = searchParams.get('nome') || '';
   const category = searchParams.get('categoria') || undefined;
   const sport = searchParams.get('esporte') || '';
 
@@ -22,9 +22,9 @@ function Filters({ sports }: { sports: Sport[] }) {
       const searchString = event.target.value;
 
       if (searchString) {
-        params.set('pesquisa', searchString);
+        params.set('nome', searchString);
       } else {
-        params.delete('pesquisa');
+        params.delete('nome');
       }
 
       replace(`${pathname}?${params.toString()}`);
