@@ -11,9 +11,10 @@ function Filters({ sports }: { sports: Sport[] }) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-  const q = searchParams.get('q') || '';
+
+  const q = searchParams.get('pesquisa') || '';
   const category = searchParams.get('categoria') || undefined;
-  const sport = searchParams.get('sport') || '';
+  const sport = searchParams.get('esporte') || '';
 
   const handleChange = useDebouncedCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,9 +22,9 @@ function Filters({ sports }: { sports: Sport[] }) {
       const searchString = event.target.value;
 
       if (searchString) {
-        params.set('q', searchString);
+        params.set('pesquisa', searchString);
       } else {
-        params.delete('q');
+        params.delete('pesquisa');
       }
 
       replace(`${pathname}?${params.toString()}`);
@@ -47,13 +48,13 @@ function Filters({ sports }: { sports: Sport[] }) {
 
   const handleSportChange = (code: string) => {
     const params = new URLSearchParams(searchParams);
-    const currentSport = params.get('sport');
+    const currentSport = params.get('esporte');
     if (currentSport === code) return;
 
     if (code) {
-      params.set('sport', code);
+      params.set('esporte', code);
     } else {
-      params.delete('sport');
+      params.delete('esporte');
     }
 
     replace(`${pathname}?${params.toString()}`);
