@@ -5,11 +5,11 @@ import { ATHLETES_PER_PAGE } from '@/lib/constants';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-import AthleteCard from '@/app/components/athlete-card';
+import AthleteCard from '@/app/_components/athlete-card';
 
 type AthletesListClientPros = {
   initialData: AthleteWithSport[];
-  filters: { searchText: string };
+  filters: { searchText: string; category: 'all' | 'olympic' | 'paralympic' };
 };
 
 function AthletesListClient({ initialData, filters }: AthletesListClientPros) {
