@@ -31,7 +31,7 @@ export async function findAthletes({
     include: { sport: { select: { name: true } } },
     where: {
       AND: [
-        { OR: [{ instagramName: { contains: searchText } }] },
+        { instagramName: { contains: searchText } },
         { paralympic: isParalympic },
         { sport: { code: sport } },
       ],
